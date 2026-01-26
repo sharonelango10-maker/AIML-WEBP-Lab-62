@@ -1,0 +1,131 @@
+/* High-Energy Vibrant Theme */
+body {
+    background: radial-gradient(circle at center, #2a0845, #000000);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #fff;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+    background: linear-gradient(to right, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+}
+
+/* Ensuring boxes are below questions */
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #00f2fe;
+    letter-spacing: 1px;
+}
+
+input, select, textarea {
+    padding: 12px;
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 17/19. Style the first input field differently (Creative Style) */
+input:first-of-type {
+    border-radius: 0px 20px 0px 20px;
+    background: #222;
+    border-bottom: 3px solid #f093fb;
+}
+
+/* 11. Focus: Change border color (List Selector) */
+input:focus, 
+textarea:focus {
+    border-color: #f093fb;
+    box-shadow: 0 0 15px rgba(240, 147, 251, 0.4);
+    outline: none;
+}
+
+/* 12. Invalid: Change border to red (List Selector) */
+input:invalid, 
+select:invalid, 
+textarea:invalid {
+    border-color: #ff4b2b;
+}
+
+/* 13. Valid: Change border to green (List Selector) */
+input:valid, 
+select:valid, 
+textarea:valid {
+    border-color: #00ff88;
+}
+
+/* Radio Group Styling */
+.radio-group {
+    border: 2px dashed #444;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+/* 15, 16, 17. Radio Checked styles */
+.radio-group input[type="radio"]:checked {
+    border-color: #4facfe;
+    background-color: #4facfe;
+    box-shadow: 0 0 12px #4facfe;
+    transform: scale(1.2);
+}
+
+/* 18. Change associated label text color when checked */
+input[type="radio"]:checked + label {
+    color: #4facfe;
+    text-shadow: 0 0 5px rgba(79, 172, 254, 0.8);
+}
+
+/* 10 & 14. Button and Hover */
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    color: #000;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    color: #fff;
+    box-shadow: 0 5px 20px rgba(245, 87, 108, 0.4);
+}

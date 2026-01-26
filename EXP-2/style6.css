@@ -1,0 +1,53 @@
+/* Page background */
+body {
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  font-family: Arial, sans-serif;
+}
+
+/* 2–6: Email container */
+#email {
+  padding: 50px;
+  margin-top: 50px;
+  width: 500px;
+  border: 2px solid #333;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 9–16: Confidential & Top Secret tags */
+#confidential,
+#top-secret {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: 2px dashed;
+  font-weight: bold;
+}
+
+/* Individual styles */
+#confidential {
+  color: #d32f2f;
+  border-color: #d32f2f;
+  transform: rotate(-8deg);
+}
+
+#top-secret {
+  color: #512da8;
+  border-color: #512da8;
+  transform: rotate(6deg);
+}
+
+/* Paragraph styling (visual only) */
+#email p {
+  margin-top: 25px;
+  line-height: 1.6;
+}
+
+/* 24: Blurred text */
+.blurred {
+  filter: blur(3px);
+  background-color: #fff3cd;
+  padding: 2px 4px;
+}

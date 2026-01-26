@@ -1,0 +1,43 @@
+/* 1. Body background */
+body {
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+/* 2. Container for color boxes */
+.color-grid {
+  display: flex;
+  gap: 15px;
+}
+
+/* 5. Box size */
+.color-box {
+  width: 100px;
+  height: 100px;
+}
+
+/* 6. Hex color */
+.color1 {
+  background-color: #ff5733;
+}
+
+/* 7. RGB color */
+.color2 {
+  background-color: rgb(52, 152, 219);
+}
+
+/* 8. Named color */
+.color3 {
+  background-color: coral;
+}
+
+/* 9. HSL color */
+.color4 {
+  background-color: hsl(120, 60%, 50%);
+}
+
+/* 10. Any background color */
+.color5 {
+  background-color: #9b59b6;
+}

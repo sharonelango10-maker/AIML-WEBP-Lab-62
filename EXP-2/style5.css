@@ -1,0 +1,67 @@
+/* Page background */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+  padding: 40px;
+}
+
+/* Title */
+h1 {
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Feature card container */
+.feature-card-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* Feature cards */
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect (visual only, test-safe) */
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* Checkbox base style */
+.feature-card input[type="checkbox"] {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #777;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+/* Checked checkbox */
+.feature-card input[type="checkbox"]:checked {
+  background-color: #ff6f61;
+  border-color: #d84315;
+}
+
+/* Checkmark */
+.feature-card input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -58%);
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
