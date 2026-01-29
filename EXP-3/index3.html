@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    :root { --neon: #22d3ee; --dark: #0f172a; --nav-bg: #1e293b; }
+    body { margin: 0; display: grid; grid-template-columns: 300px 1fr; background: var(--dark); color: #94a3b8; font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+
+    #navbar {
+      background: var(--nav-bg);
+      border-right: 2px solid var(--neon);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #navbar header { color: white; padding: 30px; font-size: 1.5rem; font-weight: 800; border-bottom: 1px solid #334155; }
+    
+    .nav-link { 
+      padding: 15px 30px; 
+      color: #94a3b8; 
+      text-decoration: none; 
+      border-bottom: 1px solid #334155;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover { color: var(--neon); background: rgba(34, 211, 238, 0.1); }
+
+    #main-doc { padding: 40px 60px; max-width: 900px; }
+    .main-section { margin-bottom: 80px; }
+    .main-section header { color: white; font-size: 2.2rem; margin-bottom: 20px; }
+    
+    code { background: #000; color: var(--neon); padding: 4px 8px; border-radius: 4px; display: block; margin: 15px 0; border-left: 3px solid var(--neon); padding: 15px; }
+    li { margin: 10px 0; }
+
+    /* REQUIREMENT: Media Query */
+    @media (max-width: 800px) {
+      body { grid-template-columns: 1fr; }
+      #navbar { position: relative; height: auto; border-right: none; border-bottom: 2px solid var(--neon); }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <header>DevJS Core</header>
+    <a class="nav-link" href="#What_is_JS">What is JS</a>
+    <a class="nav-link" href="#Data_Types">Data Types</a>
+    <a class="nav-link" href="#Functions_API">Functions API</a>
+    <a class="nav-link" href="#Node_Environment">Node Environment</a>
+    <a class="nav-link" href="#Best_Practices">Best Practices</a>
+  </nav>
+
+  <main id="main-doc">
+    <section class="main-section" id="What_is_JS">
+      <header>What is JS</header>
+      <p>JavaScript is a versatile language used for both frontend and backend.</p>
+      <p>It allows for <code>asynchronous</code> execution which is vital for modern web apps.</p>
+    </section>
+
+    <section class="main-section" id="Data_Types">
+      <header>Data Types</header>
+      <p>Understanding types is crucial for clean code.</p>
+      <ul>
+        <li>Strings</li><li>Numbers</li><li>Booleans</li><li>Null</li><li>Undefined</li>
+      </ul>
+      <code>let age = 25; // Number type</code>
+    </section>
+
+    <section class="main-section" id="Functions_API">
+      <header>Functions API</header>
+      <p>Functions are the building blocks of JavaScript.</p>
+      <code>function init() { return true; }</code>
+    </section>
+
+    <section class="main-section" id="Node_Environment">
+      <header>Node Environment</header>
+      <p>Run JS outside the browser using Node.js.</p>
+      <code>npm install express</code>
+    </section>
+
+    <section class="main-section" id="Best_Practices">
+      <header>Best Practices</header>
+      <p>Always write readable code for your future self.</p>
+      <p>Use <code>const</code> by default and only <code>let</code> when necessary.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { background: radial-gradient(circle, #2d5a27 0%, #1a3a1a 100%); min-height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center; }
+    
+    #playing-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      width: 180px;
+      height: 260px;
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      font-family: serif;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .card:hover { transform: scale(1.05) rotate(2deg); }
+
+    /* REQUIREMENT: align-self properties */
+    .left { align-self: flex-start; font-size: 1.5rem; }
+    .middle { 
+      display: flex; 
+      flex-direction: column; 
+      align-self: center; 
+      font-size: 4rem; 
+    }
+    .right { align-self: flex-end; font-size: 1.5rem; transform: rotate(180deg); }
+
+    .red { color: #e11d48; }
+    .black { color: #1e293b; }
+  </style>
+</head>
+<body>
+  <main id="playing-cards">
+    <div class="card black">
+      <div class="left">A&spades;</div>
+      <div class="middle">&spades;</div>
+      <div class="right">A&spades;</div>
+    </div>
+    <div class="card red">
+      <div class="left">K&hearts;</div>
+      <div class="middle">&hearts;</div>
+      <div class="right">K&hearts;</div>
+    </div>
+    <div class="card red">
+      <div class="left">Q&diams;</div>
+      <div class="middle">&diams;</div>
+      <div class="right">Q&diams;</div>
+    </div>
+  </main>
+</body>
+</html>

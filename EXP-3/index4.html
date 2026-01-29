@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Digital Chronicle</title>
+    <style>
+        /* General Styling */
+        body {
+            background-color: #f4f1ea; /* Newsprint color */
+            font-family: 'Georgia', serif;
+            color: #1a1a1a;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 1, 12, 13, 17, 18, 19. MAIN GRID LAYOUT */
+        .newspaper-layout {
+            display: grid;
+            max-width: 1100px;
+            gap: 20px;
+            /* 3 equal columns */
+            grid-template-columns: repeat(3, 1fr); 
+            /* First row auto, rest equal */
+            grid-template-rows: auto 1fr 1fr 1fr; 
+            /* 11, 13, 14, 15, 16. GRID AREAS MAP */
+            grid-template-areas: 
+                "title title title"
+                "feature-article feature-article cover-image"
+                "secondary-article secondary-article cover-image"
+                "small-article1 small-article2 small-article3";
+            border-top: 5px double #000;
+            padding-top: 20px;
+        }
+
+        /* 10, 20-26. ASSIGNING GRID AREAS */
+        .title { grid-area: title; text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        .feature-article { grid-area: feature-article; border-right: 1px solid #ccc; padding-right: 20px; }
+        .secondary-article { grid-area: secondary-article; border-right: 1px solid #ccc; padding-right: 20px; }
+        .cover-image { grid-area: cover-image; margin: 0; }
+        .small-article1 { grid-area: small-article1; }
+        .small-article2 { grid-area: small-article2; border-left: 1px solid #ccc; border-right: 1px solid #ccc; padding: 0 20px; }
+        .small-article3 { grid-area: small-article3; }
+
+        /* Typography & Creativity */
+        h1 { font-size: 4rem; margin: 0; text-transform: uppercase; font-family: 'Times New Roman', serif; }
+        h2 { font-size: 1.8rem; margin-top: 0; line-height: 1.2; }
+        h3 { font-size: 1.2rem; text-decoration: underline; }
+        p { line-height: 1.5; font-size: 0.95rem; text-align: justify; }
+
+        /* 11, 15, 27. IMAGE HANDLING */
+        .cover-image img {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover; /* Makes the image fill the spanning rows nicely */
+            filter: grayscale(100%) contrast(1.2); /* Newspaper aesthetic */
+            border: 1px solid #000;
+        }
+
+        /* Responsive adjustment */
+        @media (max-width: 800px) {
+            .newspaper-layout {
+                grid-template-areas: 
+                    "title title title"
+                    "feature-article feature-article feature-article"
+                    "cover-image cover-image cover-image"
+                    "secondary-article secondary-article secondary-article"
+                    "small-article1 small-article2 small-article3";
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .feature-article, .secondary-article, .small-article2 { border: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="newspaper-layout">
+        <header class="title">
+            <h1>The Digital Chronicle</h1>
+        </header>
+
+        <article class="feature-article">
+            <h2>AI Breakthrough: Models Now Design Their Own Websites</h2>
+            <p>In a stunning turn of events, artificial intelligence has begun to master the art of CSS Grid and Flexbox. Experts suggest that the "Golden Ratio" of design is now being calculated in milliseconds, leading to layouts that are both aesthetically pleasing and functionally perfect. This article explores the impact on the creative industry.</p>
+        </article>
+
+        <article class="secondary-article">
+            <h2>The Future of Flexbox in 2026</h2>
+            <p>While Grid handles the macro-layout, Flexbox remains the king of the micro-layout. New updates to the CSS specification allow for even more fluid alignment properties, making centering a 'div' easier than ever before in the history of the web.</p>
+        </article>
+
+        <figure class="cover-image">
+            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80" alt="Newspaper on a table">
+        </figure>
+
+        <article class="small-article1">
+            <h3>Weather Update</h3>
+            <p>Expect sunny skies with a chance of code snippets. Humidity is low, perfect for outdoor debugging sessions.</p>
+        </article>
+
+        <article class="small-article2">
+            <h3>Local Sports</h3>
+            <p>The CSS Challengers defeated the JS Sprinters in a 3-0 sweep during the layout championships held yesterday.</p>
+        </article>
+
+        <article class="small-article3">
+            <h3>Tech Tip</h3>
+            <p>Always remember to use a <code>gap</code> property instead of margins for grid layouts to maintain consistent spacing.</p>
+        </article>
+
+    </main>
+
+</body>
+</html>

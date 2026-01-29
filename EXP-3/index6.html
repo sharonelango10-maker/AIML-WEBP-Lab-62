@@ -1,0 +1,103 @@
+<!---TASK-8 : Center the grid on the page 
+Task: 
+For the grid :
+Set max-width to 900 px
+Add margin : 0 auto 
+add padding of 20 px 
+Concept : 
+margin : 0 auto centers block elements horizontally.
+Checkpoint : 
+Grid is centered on the page--->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Centered Chronicle</title>
+    <style>
+        /* General Page Styling */
+        body {
+            background-color: #e5e5e5;
+            margin: 0;
+            padding: 40px 0; /* Add some vertical breathing room */
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* TASK-8: Centering the Grid */
+        .newspaper-layout {
+            display: grid;
+            
+            /* Sizing & Centering Constraints */
+            max-width: 900px;  /* Task-8: Limit width */
+            margin: 0 auto;    /* Task-8: Center horizontally */
+            padding: 20px;     /* Task-8: Internal spacing */
+            
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            gap: 20px;
+            
+            /* Grid Structure */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto 1fr 1fr 1fr;
+            grid-template-areas: 
+                "title title title"
+                "feature-article feature-article cover-image"
+                "secondary-article secondary-article cover-image"
+                "small-article1 small-article2 small-article3";
+        }
+
+        /* Grid Area Assignments */
+        .title { grid-area: title; text-align: center; border-bottom: 4px solid #000; margin-bottom: 10px; }
+        .feature-article { grid-area: feature-article; }
+        .secondary-article { grid-area: secondary-article; }
+        .cover-image { grid-area: cover-image; margin: 0; }
+        .small-article1 { grid-area: small-article1; }
+        .small-article2 { grid-area: small-article2; }
+        .small-article3 { grid-area: small-article3; }
+
+        /* Typography */
+        h1 { font-size: 3.5rem; text-transform: uppercase; margin: 10px 0; }
+        h2 { border-bottom: 1px solid #000; padding-bottom: 5px; }
+        p { line-height: 1.4; text-align: justify; color: #333; }
+
+        /* Image Styling */
+        .cover-image img {
+            max-width: 100%; /* Required */
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 700px) {
+            .newspaper-layout {
+                grid-template-areas: 
+                    "title title title"
+                    "feature-article feature-article feature-article"
+                    "cover-image cover-image cover-image"
+                    "secondary-article secondary-article secondary-article"
+                    "small-article1 small-article2 small-article3";
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="newspaper-layout">
+        <header class="title">
+            <h1>The Daily Grid</h1>
+        </header>
+
+        <article class="feature-article">
+            <h2>Grid Layout Centers the Web</h2>
+            <p>Using <code>margin: 0 auto</code> has long been the gold standard for centering block elements. Combined with CSS Grid's <code>max-width</code>, developers can now ensure their content remains readable on ultra-wide monitors while staying perfectly aligned.</p>
+        </article>
+
+        <article class="secondary-article">
+            <h2>Task 8 Complete</h2>
+            <p>The layout now respects the 900px boundary. This creates a clear visual gutter on the left and right sides of the screen, mimicking the feel of a physical broadsheet newspaper held in one's hands.</p>
+        </article>
+
+        <figure class="cover-image">
+            <img src="
