@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { background-color: #f1f2f6; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        #statusText { font-size: 24px; color: #2f3542; transition: all 0.5s ease; padding: 20px; border: 2px dashed #70a1ff; display: inline-block; border-radius: 10px; }
+        .active { color: #2ed573 !important; border-style: solid !important; border-color: #2ed573 !important; background: #e3f9eb; }
+    </style>
+</head>
+<body>
+    <p id="statusText">System Status: Idle</p><br><br>
+    <button onclick="updateStatus()" style="padding: 10px 20px; cursor: pointer;">Update Status</button>
+
+    <script>
+        function updateStatus() {
+            let p = document.getElementById("statusText");
+            p.innerHTML = "System Status: Online 🚀";
+            p.classList.add("active");
+        }
+    </script>
+</body>
+</html>

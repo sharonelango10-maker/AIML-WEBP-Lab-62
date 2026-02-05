@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 8</title>
+</head>
+<body>
+    <p id="targetPara">I am waiting to be changed.</p>
+    <button onclick="modifyDOM()">Access & Change</button>
+
+    <script>
+        function modifyDOM() {
+            let element = document.getElementById("targetPara");
+            element.style.color = "blue"; // Adding a little extra style
+            element.textContent = "I have been accessed via the DOM!";
+        }
+    </script>
+</body>
+</html>
