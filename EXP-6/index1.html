@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp-6: Validation & Storage Lab</title>
+    <style>
+        :root {
+            --bg: #f4f7f6;
+            --card: #ffffff;
+            --text: #333;
+            --primary: #4a90e2;
+            --accent: #2ecc71;
+            --error: #e74c3c;
+        }
+
+        .dark-theme {
+            --bg: #1a1a2e;
+            --card: #16213e;
+            --text: #e9ecef;
+            --primary: #4cc9f0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--card);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h2 { text-align: center; margin-bottom: 25px; }
+
+        .form-group { margin-bottom: 20px; position: relative; }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--text);
+            box-sizing: border-box;
+        }
+
+        input:focus { border-color: var(--primary); outline: none; }
+
+        .error-msg {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .strength-meter {
+            height: 5px;
+            width: 0%;
+            margin-top: 5px;
+            transition: 0.3s;
+            border-radius: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: opacity 0.2s;
+        }
+
+        button:hover { opacity: 0.9; }
+
+        #themeBtn {
+            background: #555;
+            margin-bottom: 20px;
+            width: auto;
+            padding: 8px 20px;
+        }
+
+        #welcomeNote { font-weight: bold; color: var(--accent); margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <button id="themeBtn">🌓 Toggle Theme</button>
+
+    <div class="container">
+        <h2>Lab Experiment 6</h2>
+        <div id="welcomeNote"></div>
+
+        <div class="form-group">
+            <label>Username (Local Storage)</label>
+            <input type="text" id="username" placeholder="Type name to save...">
+        </div>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="text" id="email" placeholder="example@mail.com">
+            <div id="emailError" class="error-msg">Missing '@' symbol!</div>
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" id="phone" placeholder="10-digit number">
+            <div id="phoneError" class="error-msg">Must be exactly 10 digits.</div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="At least 6 characters">
+            <div id="strengthMeter" class="strength-meter"></div>
+            <div id="passError" class="error-msg">Too short!</div>
+        </div>
+
+        <button onclick="runAllChecks()">Submit Form</button>
+    </div>
+
+    <script>
+        // DOM Elements
+        const themeBtn = document.getElementById('themeBtn');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const passInput = document.getElementById('password');
+        const welcomeNote = document.getElementById('welcomeNote');
+
+        // --- PART C: LOCAL STORAGE & THEME ---
+        
+        // Exercise 6: Retrieve & Display Username
+        window.onload = () => {
+            const savedName = localStorage.getItem('lab_user');
+            if (savedName) {
+                welcomeNote.innerText = `Welcome back, ${savedName}!`;
+                usernameInput.value = savedName;
+            }
+
+            // Exercise 7: Load Theme Preference
+            if (localStorage.getItem('lab_theme') === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        };
+
+        // Exercise 6: Save Username on input
+        usernameInput.addEventListener('input', (e) => {
+            localStorage.setItem('lab_user', e.target.value);
+            welcomeNote.innerText = e.target.value ? `Hi, ${e.target.value}` : "";
+        });
+
+        // Exercise 7: Toggle Theme
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('lab_theme', theme);
+        });
+
+        // --- PART B: HANDS-ON VALIDATION ---
+
+        // Exercise 5: Password Strength (Visual)
+        passInput.addEventListener('input', () => {
+            const meter = document.getElementById('strengthMeter');
+            const error = document.getElementById('passError');
+            if (passInput.value.length < 6) {
+                meter.style.width = "30%";
+                meter.style.backgroundColor = "var(--error)";
+                error.style.display = "block";
+            } else {
+                meter.style.width = "100%";
+                meter.style.backgroundColor = "var(--accent)";
+                error.style.display = "none";
+            }
+        });
+
+        function runAllChecks() {
+            let isValid = true;
+
+            // Exercise 3: Email Check
+            if (!emailInput.value.includes('@')) {
+                document.getElementById('emailError').style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById('emailError').style.display = "none";
+            }
+
+            // Exercise 4: Phone Check
+            const phoneVal = phoneInput.value;
+            if (phoneVal.length !== 10 || isNaN(phoneVal)) {
+                document.getElementById('phoneError').style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById('phoneError').style.display = "none";
+            }
+
+            if (isValid) {
+                alert("🚀 Success! All validations passed.");
+            }
+        }
+    </script>
+</body>
+</html>
