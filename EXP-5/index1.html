@@ -1,0 +1,55 @@
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #121212; color: white; padding: 40px; }
+  .card { background: #1e1e1e; border-radius: 15px; padding: 20px; border-left: 5px solid #00d2ff; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+  h2 { color: #00d2ff; }
+  button { background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); border: none; padding: 10px 20px; color: white; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+  button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,210,255,0.4); }
+  input { padding: 10px; border-radius: 8px; border: 1px solid #333; background: #2d2d2d; color: white; width: 250px; }
+  ul { list-style: none; padding: 0; }
+  li { background: #2d2d2d; margin: 5px 0; padding: 10px; border-radius: 5px; border-right: 3px solid #3a7bd5; animation: fadeIn 0.5s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+</style>
+
+<div class="card">
+  <h2>Exercise 3 & 4: Create & Update</h2>
+  <p id="mainPara">I am the original text.</p>
+  <button onclick="updateText()">Update Text</button>
+  <button onclick="addNewPara()">Add New Paragraph</button>
+</div>
+
+<div class="card">
+  <h2>Exercise 8: To-Do Logic</h2>
+  <input type="text" id="taskInput" placeholder="Enter a new task...">
+  <button id="addTaskBtn">Add Task</button>
+  <ul id="taskList"></ul>
+</div>
+
+<script>
+  // Logic for Exercise 3
+  function updateText() {
+    document.getElementById('mainPara').style.color = "#ffa502";
+    document.getElementById('mainPara').innerText = "✨ I've been transformed by JS!";
+  }
+
+  // Logic for Exercise 4
+  function addNewPara() {
+    const p = document.createElement('p');
+    p.innerText = "➕ New element added to the DOM!";
+    p.style.color = "#9f9";
+    document.body.appendChild(p);
+  }
+
+  // Logic for Exercise 8 (The To-Do Heart)
+  const input = document.getElementById('taskInput');
+  const btn = document.getElementById('addTaskBtn');
+  const list = document.getElementById('taskList');
+
+  btn.addEventListener('click', () => {
+    if(input.value !== "") {
+      const li = document.createElement('li');
+      li.innerHTML = `🚀 ${input.value}`;
+      list.appendChild(li);
+      input.value = ""; // Reset input
+    }
+  });
+</script>
